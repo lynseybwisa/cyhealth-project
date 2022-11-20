@@ -1,4 +1,4 @@
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import React, { useRef, useState } from "react";
 // import "./navbar.css";
 
@@ -14,7 +14,8 @@ const SideBar = () => {
             <aside>
               <ul>
                 <li>
-                  <a class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md " href="#">
+                <Link to="/stats">
+                  <a class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md " >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,10 +24,12 @@ const SideBar = () => {
   
                     <span class="mx-4 font-medium">Statistics</span>
                   </a>
+                  </Link>
                 </li>
   
                 <li>
-                  <a class="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="#">
+                <Link to="/history">
+                  <a class="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,6 +40,7 @@ const SideBar = () => {
   
                     <span class="mx-4 font-medium">History</span>
                   </a>
+                  </Link>
                 </li>
               </ul>
   
