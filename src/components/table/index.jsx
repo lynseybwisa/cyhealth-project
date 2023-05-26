@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import classNames from 'classnames'
 import Textfield from '../../components/inputs/Textfield'
 import { Button } from '../button/Button'
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 // import { FilterDropdown } from '../dropdown/FilterDropdown'
 // import DropdownItem from './components/DropdownItem'
 
@@ -38,16 +37,17 @@ export const Table = ({
     setTableData(searchResult)
   }
 
-  const paginate = () => {
+  const paginate = useCallback(() => {
     // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
     setTableDataPaginated(
       tableData.slice((page - 1) * page_size, page * page_size),
-    )
-  }
-
+    );
+  }, [page, tableData, page_size]);
+  
   useEffect(() => {
-    paginate()
-  }, [page, tableData])
+    paginate();
+  }, [paginate]);
+  
 
   const nextPage = () => {
     if (tableData.length / page_size > page) setPage(page + 1)

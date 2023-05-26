@@ -100,7 +100,7 @@
 
 //   export default History
 
-import React, { useState } from "react";
+import React from "react";
 import Chart from "react-apexcharts";
 
 export default function ApexChart(props) {

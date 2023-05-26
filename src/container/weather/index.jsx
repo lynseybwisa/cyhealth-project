@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { get_all_statistics } from '../../api/Axios';
 import { Table } from '../../components/table';
 import TableInitials from '../../components/table/components/TableInitials';
-import TableText from '../../components/table/components/TableText';
-import { Headers } from '../table-headers/headers';
 
 const Climate = () => {
   const [statistics, setStatistics] = useState([]);
@@ -46,11 +43,9 @@ const Climate = () => {
       render: (rowData) => {
         return (
           <TableInitials
-            title={'Temperature: ' + ' ' + rowData.temperature + ' ' + 'degree celsius'}
-            subtitle={'Weather Description: ' + ' ' + rowData?.weatherDescription + ' ' + 'in' + ' ' + rowData.location }
-            population={
-              'Humidity: ' + ' ' + rowData.humidity + ' ' + 'humidity' + ' ' + rowData.pressure + ' ' + 'pressure'
-            }
+            title={`Temperature: ${rowData.temperature} degree celsius`}
+            subtitle={`Weather Description: ${rowData?.weatherDescription} in ${rowData.location}`}
+            population={`Humidity: ${rowData.humidity} humidity ${rowData.pressure} pressure`}
             initials={rowData?.country}
             textColor={'darkBlack'}
           />
@@ -58,8 +53,8 @@ const Climate = () => {
       },
     },
     // Add more tableConstant objects for other columns
-
   ];
+  
 
   return (
     <div>

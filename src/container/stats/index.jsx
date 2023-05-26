@@ -1,11 +1,9 @@
-import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import { get_all_statistics } from '../../api/Axios'
-import Textfield from '../../components/inputs/Textfield'
 import { Table } from '../../components/table'
 import TableInitials from '../../components/table/components/TableInitials'
 import TableText from '../../components/table/components/TableText'
-import { Headers } from '../table-headers/headers'
+
 
 // const statistics = [
 //   {
@@ -64,15 +62,13 @@ const Stats = () => {
       render: (rowData) => {
         return (
           <TableInitials
-            title={'Continent: ' + ' ' + rowData.continent}
-            subtitle={'Country: ' + ' ' + rowData?.country}
-            population={
-              'Population: ' + ' ' + rowData.population + ' ' + 'people'
-            }
+            title={`Continent: ${rowData.continent}`}
+            subtitle={`Country: ${rowData?.country}`}
+            population={`Population: ${rowData.population} people`}
             initials={rowData?.continent}
-            textColor={'darkBlack'}
+            textColor="darkBlack"
           />
-        )
+        );
       },
     },
     {
@@ -80,14 +76,14 @@ const Stats = () => {
       render: (rowData) => {
         return (
           <TableText
-            title={'New: ' + ' ' + rowData?.cases.new}
-            subtitle={'Active: ' + ' ' + rowData?.cases.active}
-            critical={'Critical: ' + ' ' + rowData?.cases.critical}
-            recovered={'Recovered: ' + ' ' + rowData?.cases.recovered}
-            total={'Total: ' + ' ' + rowData?.cases.total + ' ' + 'people'}
+            title={`New: ${rowData?.cases.new}`}
+            subtitle={`Active: ${rowData?.cases.active}`}
+            critical={`Critical: ${rowData?.cases.critical}`}
+            recovered={`Recovered: ${rowData?.cases.recovered}`}
+            total={`Total: ${rowData?.cases.total} people`}
             type="text"
           />
-        )
+        );
       },
     },
     {
@@ -95,26 +91,31 @@ const Stats = () => {
       render: (rowData) => {
         return (
           <TableText
-            title={'New: ' + ' ' + rowData?.deaths.new}
-            total={'Total: ' + ' ' + rowData?.cases.total + ' ' + 'people'}
+            title={`New: ${rowData?.deaths.new}`}
+            total={`Total: ${rowData?.cases.total} people`}
           />
-        )
+        );
       },
     },
-
     {
       title: 'Tests',
       render: (rowData) => {
-        return <TableText total={'Total: ' + ' ' + rowData?.tests.total + ' ' + 'people'} type="text" />
+        return (
+          <TableText
+            total={`Total: ${rowData?.tests.total} people`}
+            type="text"
+          />
+        );
       },
     },
     {
       title: 'Time',
       render: (rowData) => {
-        return <TableText title={rowData?.time} type="datetime" />
+        return <TableText title={rowData?.time} type="datetime" />;
       },
     },
-  ]
+  ];
+  
 
   return (
     <div>

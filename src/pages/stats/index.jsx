@@ -6,19 +6,20 @@ const Statistics = () => {
   const [statistics, setStatistics] = useState([])
 
   // console.log('This is the page', statistics)
-  const fetchData = () => {
-    get_all_statistics()
-      .then((res) => {
-        setStatistics(res.data)
-        // console.log("This is the response", res.data.response)
-      })
-      .catch((err) => console.log(err))
-  }
-
   useEffect(() => {
-    fetchData()
-  }, [])
-
+    const fetchData = () => {
+      get_all_statistics()
+        .then((res) => {
+          setStatistics(res.data);
+          console.log("This is the response", res.data);
+        })
+        .catch((err) => console.log(err));
+    };
+  
+    fetchData();
+  }, [statistics]);
+  
+  
   return (
     <div>
       <Stats  />

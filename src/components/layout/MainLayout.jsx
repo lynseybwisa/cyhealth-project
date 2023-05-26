@@ -1,10 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 // import React from 'react'
 import SideBar from '../sidebar/Sidebar'
 
 const MainLayout = ({ children }) => {
-  const navigate = useNavigate()
   return (
     <div class="flex">
         <SideBar/>
